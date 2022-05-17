@@ -24,11 +24,14 @@ const (
 //Получаем Order и кладем в map
 func getOrder(db *sql.DB, id string) model.Order {
 
-	var items []model.Item
-	var o model.Order
-	var d model.Delivery
-	var i model.Item
-	var p model.Payment
+	var (
+		items []model.Item
+		o     model.Order
+		d     model.Delivery
+		i     model.Item
+		p     model.Payment
+	)
+
 	//m := make(map[string]model.Order)
 
 	result, err := db.Query(fmt.Sprintf("SELECT * FROM orders where Order_uid ='%s'", id))
